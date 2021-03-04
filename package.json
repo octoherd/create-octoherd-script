@@ -1,0 +1,41 @@
+{
+  "name": "create-octoherd-script",
+  "version": "0.0.0-development",
+  "description": "CLI to create a new folder and repository for an Octoherd Script",
+  "type": "module",
+  "exports": "./cli.js",
+  "bin": {
+    "create-octoherd-script": "cli.js"
+  },
+  "repository": "https://github.com/octoherd/create-octoherd-script.js",
+  "keywords": [
+    "npm-init",
+    "octoherd"
+  ],
+  "author": "Gregor Martynus (https://twitter.com/gr2m)",
+  "license": "ISC",
+  "scripts": {
+    "lint": "prettier --check 'lib/*.js' cli.js README.md package.json",
+    "lint:fix": "prettier --write 'lib/*.js' cli.js README.md package.json",
+    "test": "npm run lint"
+  },
+  "dependencies": {
+    "@octokit/auth-oauth-device": "^1.0.0",
+    "@octokit/core": "^3.2.4",
+    "camelcase": "^6.2.0",
+    "clipboardy": "^2.3.0",
+    "decamelize": "^5.0.0",
+    "execa": "^5.0.0",
+    "inquirer": "^7.3.3",
+    "prettier": "^2.2.1",
+    "spdx-license-list": "^6.3.0"
+  },
+  "devDependencies": {
+    "semantic-release": "^17.3.0"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
+  }
+}
