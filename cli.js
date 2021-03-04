@@ -112,7 +112,7 @@ async function main() {
     });
     console.log(`README.md created`);
 
-    await command("git add LICENSE");
+    await command("git add LICENSE.md");
     await command("git commit -m 'docs(LICENSE): ISC'");
 
     await command("git add CODE_OF_CONDUCT.md");
