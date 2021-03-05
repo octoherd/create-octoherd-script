@@ -7,7 +7,7 @@
   "bin": {
     "create-octoherd-script": "cli.js"
   },
-  "repository": "https://github.com/octoherd/create-octoherd-script",
+  "repository": "github:octoherd/create-octoherd-script",
   "keywords": [
     "npm-init",
     "octoherd"
