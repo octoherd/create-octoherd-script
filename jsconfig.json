@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    // highlight JS errors in editors for this project
+    "checkJs": true,
+    "module": "es2020",
+    "target": "es2020"
+  }
+}
