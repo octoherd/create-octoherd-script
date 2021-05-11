@@ -16,5 +16,7 @@ jobs:
           node-version: 12
       - name: Install
         run: npm ci
+      - name: Check JS
+        run: npx -p typescript tsc --allowJs --noEmit --lib es2020 *.js
       - name: Test
         run: npm test
