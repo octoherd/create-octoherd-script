@@ -24,7 +24,7 @@
     "@octokit/core": "^3.2.4",
     "camelcase": "^6.2.0",
     "clipboardy": "^2.3.0",
-    "decamelize": "^5.0.0",
+    "decamelize": "^6.0.0",
     "execa": "^5.0.0",
     "inquirer": "^8.0.0",
     "prettier": "^2.2.1",
