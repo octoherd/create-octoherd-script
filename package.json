@@ -38,10 +38,5 @@
     "branches": [
       "main"
     ]
-  },
-  "renovate": {
-    "extends": [
-      "github>octoherd/.github"
-    ]
   }
 }
