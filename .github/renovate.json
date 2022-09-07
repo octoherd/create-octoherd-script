@@ -1,5 +1,3 @@
 {
-  "extends": [
-    "github>octoherd/.github"
-  ]
+  "extends": ["github>octoherd/.github"]
 }
