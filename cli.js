@@ -19,6 +19,7 @@ import createPullRequest from "./lib/create-pull-request.js";
 import createReadme from "./lib/create-readme.js";
 import createReleaseAction from "./lib/create-release-action.js";
 import createTestAction from "./lib/create-test-action.js";
+import createRenovateConfig from "./lib/create-renovate-config.js";
 import createRepository from "./lib/create-repository.js";
 import createScript from "./lib/create-script.js";
 import prompts from "./lib/prompts.js";
@@ -244,6 +245,12 @@ run(script);
     await createTestAction();
     await command(`git add .github/workflows/test.yml`);
     await command(`git commit -m 'ci(test): initial version'`);
+
+    if (owner === "octoherd") {
+      await createRenovateConfig();
+      await command(`git add .github/renovate.json`);
+      await command(`git commit -m 'build(renovate): create renovate setup'`);
+    }
 
     await command(`git push`);
 
