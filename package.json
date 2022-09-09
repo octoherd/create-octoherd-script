@@ -31,8 +31,7 @@
     "spdx-license-list": "^6.3.0"
   },
   "devDependencies": {
-    "@types/node": "^16.0.0",
-    "semantic-release": "^19.0.0"
+    "@types/node": "^16.0.0"
   },
   "release": {
     "branches": [
