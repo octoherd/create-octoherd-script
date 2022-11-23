@@ -95,13 +95,13 @@ async function main() {
     await command("git init");
     await command("git checkout -b main");
 
-    createLicense(answers.licenseName);
+    await createLicense(answers.licenseName);
     console.log(`LICENSE created`);
 
-    createCoc(answers.cocEmail);
+    await createCoc(answers.cocEmail);
     console.log(`CODE_OF_CONDUCT.md created`);
 
-    createContributing({ owner, repo, packageName: answers.packageName });
+    await createContributing({ owner, repo, packageName: answers.packageName });
     console.log(`CONTRIBUTING.md created`);
 
     await createReadme({
@@ -146,7 +146,7 @@ async function main() {
     await command(`git push -u origin HEAD`);
     await command(`git checkout -b initial-version`);
 
-    createReadme({
+    await createReadme({
       repo,
       description: answers.description,
     });
@@ -256,7 +256,7 @@ run(script);
     console.log(`Your new repository is here:
 https://github.com/${answers.repository}
 
-To change into the new directory, do 
+To change into the new directory, do
 $ cd ${answers.path}`);
   } catch (error) {
     console.log(error);
