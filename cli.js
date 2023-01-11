@@ -113,22 +113,22 @@ async function main() {
     console.log(`README.md created`);
 
     await command("git add LICENSE.md");
-    await command("git commit -m 'docs(LICENSE): ISC'");
+    await command(`git commit -m "docs(LICENSE): ISC"`);
 
     await command("git add CODE_OF_CONDUCT.md");
     await command(
-      "git commit -m 'docs(CODE_OF_CONDUCT): Contributor Covenant'"
+      `git commit -m "docs(CODE_OF_CONDUCT): Contributor Covenant"`
     );
 
     await command("git add CONTRIBUTING.md");
-    await command("git commit -m 'docs(CONTRIBUTING): initial version'");
+    await command(`git commit -m "docs(CONTRIBUTING): initial version"`);
 
     await command("git add README.md");
-    await command("git commit -m 'docs(README): initial version'");
+    await command(`git commit -m "docs(README): initial version"`);
 
     await createIssueTemplates(answers.packageName);
     await command("git add .github/ISSUE_TEMPLATE");
-    await command("git commit -m 'docs(ISSUE_TEMPLATES): initial version'");
+    await command(`git commit -m "docs(ISSUE_TEMPLATES): initial version"`);
 
     const {
       data: { id: repositoryId },
@@ -151,7 +151,7 @@ async function main() {
       description: answers.description,
     });
 
-    await command(`git commit README.md -m 'docs(README): remove WIP note'`);
+    await command(`git commit README.md -m "docs(README): remove WIP note"`);
     await command(`git push -u origin HEAD`);
 
     let ownerId = userId;
@@ -176,9 +176,9 @@ async function main() {
     await command(`npm install ${dependencies.join(" ")}`);
 
     await command(`git add package.json`);
-    await command(`git commit -m 'build(package): initial version'`);
+    await command(`git commit -m "build(package): initial version"`);
     await command(`git add package-lock.json`);
-    await command(`git commit -m 'build(package): lock file'`);
+    await command(`git commit -m "build(package): lock file"`);
 
     console.log("Create branch protection for main");
     try {
@@ -195,7 +195,7 @@ async function main() {
     await writePrettyFile(".gitignore", ignorePaths.join("\n"));
     await command(`git add .gitignore`);
     await command(
-      `git commit -m 'build(gitignore): ${ignorePaths.join(", ")}'`
+      `git commit -m "build(gitignore): ${ignorePaths.join(", ")}"`
     );
 
     console.log("create script.js and cli.js");
@@ -213,7 +213,7 @@ run(script);
     );
 
     await command(`git add script.js cli.js`);
-    await command(`git commit -m 'feat: initial version'`);
+    await command(`git commit -m "feat: initial version"`);
 
     await createReadme({
       addBadges: true,
@@ -222,7 +222,7 @@ run(script);
       packageName: answers.packageName,
       repository: answers.repository,
     });
-    await command(`git commit README.md -m 'docs(README): badges'`);
+    await command(`git commit README.md -m "docs(README): badges"`);
 
     await createReadme({
       addBadges: true,
@@ -234,21 +234,21 @@ run(script);
       repository: answers.repository,
       scriptOptions: answers.scriptOptions,
     });
-    await command(`git commit README.md -m 'docs(README): usage'`);
+    await command(`git commit README.md -m "docs(README): usage"`);
 
     console.log("Create actions");
     await createReleaseAction({ owner });
     await command(`git add .github/workflows/release.yml`);
-    await command(`git commit -m 'ci(release): initial version'`);
+    await command(`git commit -m "ci(release): initial version"`);
 
     await createTestAction();
     await command(`git add .github/workflows/test.yml`);
-    await command(`git commit -m 'ci(test): initial version'`);
+    await command(`git commit -m "ci(test): initial version"`);
 
     if (owner === "octoherd") {
       await createRenovateConfig();
       await command(`git add .github/renovate.json`);
-      await command(`git commit -m 'build(renovate): create renovate setup'`);
+      await command(`git commit -m "build(renovate): create renovate setup"`);
     }
 
     await command(`git push`);
