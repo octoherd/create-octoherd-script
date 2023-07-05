@@ -117,7 +117,7 @@ async function main() {
 
     await command("git add CODE_OF_CONDUCT.md");
     await command(
-      `git commit -m "docs(CODE_OF_CONDUCT): Contributor Covenant"`
+      `git commit -m "docs(CODE_OF_CONDUCT): Contributor Covenant"`,
     );
 
     await command("git add CONTRIBUTING.md");
@@ -141,7 +141,7 @@ async function main() {
     });
 
     await command(
-      `git remote add origin git@github.com:${answers.repository}.git`
+      `git remote add origin git@github.com:${answers.repository}.git`,
     );
     await command(`git push -u origin HEAD`);
     await command(`git checkout -b initial-version`);
@@ -187,7 +187,7 @@ async function main() {
       if (error.status !== 403) throw error;
 
       console.log(
-        "Branch protection could not be enabled, because the repository is private and belongs to an organization using the free plan"
+        "Branch protection could not be enabled, because the repository is private and belongs to an organization using the free plan",
       );
     }
 
@@ -195,7 +195,7 @@ async function main() {
     await writePrettyFile(".gitignore", ignorePaths.join("\n"));
     await command(`git add .gitignore`);
     await command(
-      `git commit -m "build(gitignore): ${ignorePaths.join(", ")}"`
+      `git commit -m "build(gitignore): ${ignorePaths.join(", ")}"`,
     );
 
     console.log("create script.js and cli.js");
@@ -209,7 +209,7 @@ import { script } from "./script.js";
 import { run } from "@octoherd/cli/run";
 
 run(script);
-`
+`,
     );
 
     await command(`git add script.js cli.js`);
